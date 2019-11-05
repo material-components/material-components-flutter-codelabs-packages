@@ -6,11 +6,3 @@ homepage: https://github.com/material-components/material-components-flutter-cod
 
 environment:
   sdk: ">=2.0.0-dev.28.0 <3.0.0"
-
-dependencies:
-  flutter:
-    sdk: flutter
-
-dev_dependencies:
-  flutter_test:
-    sdk: flutter
