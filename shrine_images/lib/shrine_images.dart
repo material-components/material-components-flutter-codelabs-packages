@@ -12,7 +12,6 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-
 import 'dart:io';
 
 class ShrineImages {
@@ -22,22 +21,17 @@ class ShrineImages {
     if (!_imageNames.contains(name)) {
       throw Exception('Unknown image "$name"');
     }
-
-    return ShrineImage._(
-      name,
-      File('$name'),
-      File('2.0x/$name'),
-      File('3.0x/$name'),
-    );
+    return ShrineImage._(name);
   }
 }
 
 class ShrineImage {
-  ShrineImage._(this.filename, this.image1x, this.image2x, this.image3x);
-  final String filename;
-  final File image1x;
-  final File image2x;
-  final File image3x;
+  ShrineImage._(this._filename);
+  final String _filename;
+
+  Stream<List<int>> get image1x => File(_filename).openRead();
+  Stream<List<int>> get image2x => File('2.0x/$_filename').openRead();
+  Stream<List<int>> get image3x => File('3.0x/$_filename').openRead();
 }
 
 const List<String> _imageNames = [
