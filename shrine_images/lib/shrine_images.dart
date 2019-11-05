@@ -12,13 +12,15 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// Needed to get path of this package.
+import 'dart:mirrors';
 import 'dart:io';
 
 class ShrineImages {
-  List<String> get imageNames => List<String>.unmodifiable(_imageNames);
+  List<String> get imageNames => List<String>.unmodifiable(_imagenames);
 
   ShrineImage operator [](String name) {
-    if (!_imageNames.contains(name)) {
+    if (!_imagenames.contains(name)) {
       throw Exception('Unknown image "$name"');
     }
     return ShrineImage._(name);
@@ -26,15 +28,16 @@ class ShrineImages {
 }
 
 class ShrineImage {
-  ShrineImage._(this._filename);
-  final String _filename;
+  ShrineImage._(this._imagename);
+  final Uri baseUri = currentMirrorSystem().libraries['shrine_images'].uri;
+  final String _imagename;
 
-  Stream<List<int>> get image1x => File(_filename).openRead();
-  Stream<List<int>> get image2x => File('2.0x/$_filename').openRead();
-  Stream<List<int>> get image3x => File('3.0x/$_filename').openRead();
+  File get image1x => File('$baseUri/$_imagename');
+  File get image2x => File('$baseUri/2.0x/$_imagename');
+  File get image3x => File('$baseUri/3.0x/$_imagename');
 }
 
-const List<String> _imageNames = [
+const List<String> _imagenames = [
   '0-0.jpg',
   '1-0.jpg',
   '2-0.jpg',
