@@ -1,11 +1,10 @@
 name: rally_assets
 description: Assets for the app Rally, a Flutter sample app based on the Material study Rally.
-version: 2.0.0
-author: Per Classon <perc@google.com>
-homepage: https://github.com/material-components/material-components-flutter-codelabs-packages
+version: 3.0.0
+repository: https://github.com/material-components/material-components-flutter-codelabs-packages
 
 environment:
-  sdk: ">=2.1.0 <3.0.0"
+  sdk: ">=2.10.0-0.0.dev <3.0.0"
 
 dependencies:
   flutter:
