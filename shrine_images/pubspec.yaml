@@ -1,10 +1,10 @@
 name: shrine_images
 description: Image assets for the Material Components for Flutter codelabs based on an app called Shrine.
-version: 2.0.0
+version: 2.0.1
 repository: https://github.com/material-components/material-components-flutter-codelabs-packages
 
 environment:
-  sdk: ">=2.10.0-0.0.dev <3.0.0"
+  sdk: ">=2.12.0-0 <3.0.0"
 
 dependencies:
   flutter:
